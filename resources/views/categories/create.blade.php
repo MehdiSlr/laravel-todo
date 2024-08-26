@@ -11,7 +11,9 @@
             @csrf
             <div class="mb-3">
                 <label for="title" class="form-label">Title</label>
-                <input type="text" name="title" id="title" class="form-control">
+                <input type="text" name="title" id="title" class="form-control @error('title')
+                border border-danger
+                @enderror">
                 <div class="form-text text-danger">@error('title')
                     {{ $message }}
                 @enderror</div>
