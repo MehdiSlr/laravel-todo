@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [TodoController::class ,'index'])->name('todo.index');
 
+Route::resource('todos', TodoController::class);
+
 // Categiry Routes
 /* | */Route::resource('categories', CategoryController::class); /* | */
 //     --------------------------------------------------------
