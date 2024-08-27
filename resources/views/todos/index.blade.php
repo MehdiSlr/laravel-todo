@@ -25,18 +25,30 @@
                         <td>{{ $todo->title }}</td>
                         <td>{{ $todo->category->title }}</td>
                         <td>
-                            <a href="{{ route('todos.show', $todo->id) }}" class="btn btn-sm btn-primary">Show</a>
+                            <a href="{{ route('todos.show', $todo->id) }}" class="btn btn-sm btn-todo btn-primary">Show</a>
                             @if ($todo->status)
-                            <a href="{{ route('todos.undone', $todo->id) }}" class="btn btn-sm btn-outline-success">Completed</a>
+                            <a href="{{ route('todos.undone', $todo->id) }}" id="undone" class="btn btn-sm btn-todo btn-outline-danger">Completed</a>
                             @else
-                            <a href="{{ route('todos.done', $todo->id) }}" class="btn btn-sm btn-danger">Done?</a>
+                            <a href="{{ route('todos.done', $todo->id) }}" class="btn btn-sm btn-todo btn-success">Done</a>
                             @endif
                         </td>
                     </tr>
                     @endforeach
-                    
                 </tbody>
             </table>
+            {{ $todos->links() }}
         </div>
     </div>
+
+    <script>
+        const undoneButton = document.getElementById("undone");
+    
+        undoneButton.addEventListener("mouseover", function() {
+            undoneButton.innerHTML = "Undone!";
+        });
+    
+        undoneButton.addEventListener("mouseout", function() {
+            undoneButton.innerHTML = "Completed";
+        });
+    </script>
 @endsection
