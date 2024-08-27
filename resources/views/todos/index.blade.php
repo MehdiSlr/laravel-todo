@@ -4,7 +4,7 @@
     <div class="card">
         <div class="card-header d-flex justify-content-between align-items-center">
             <h5 class="">Todos</h5>
-            <a href="{{ route('todos.create') }}" class="btn btn-dark">Create</a>
+            <a href="{{ route('todos.create') }}" class="btn btn-dark"><i class="fa fa-plus me-3"></i>Create</a>
         </div>
         <div class="card-body">
             <table class="table table-striped align-middle">
