@@ -10,7 +10,13 @@ class TodoController extends Controller
 {
     public function index()
     {
-        return view('todos.index');
+        $todos = Todo::all();
+        return view('todos.index', compact('todos'));
+    }
+
+    public function show(Todo $todo)
+    {
+        return view('todos.show', compact('todo'));
     }
 
     public function create()
@@ -21,9 +27,6 @@ class TodoController extends Controller
 
     public function store(Request $request)
     {
-
-        $requestData = $request->all();
-        // dd($request->all());
         $request->validate([
             'image' => 'required|image|max:2048',
             'title' => 'required|min:3|max:50|unique:todos,title',
@@ -40,5 +43,7 @@ class TodoController extends Controller
             'description'=> $request->description,
             'category_id'=> $request->category_id
         ]);
+
+        return redirect()->route('todos.index');
     }
 }

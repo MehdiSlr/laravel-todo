@@ -4,7 +4,7 @@
     <div class="card">
         <div class="card-header d-flex justify-content-between align-items-center">
             <h5 class="">Create Todo</h5>
-            <a href="#" class="btn btn-dark">back</a>
+            <a href="{{ route('todos.index') }}" class="btn btn-dark">back</a>
         </div>
         <div class="card-body">
             <form action="{{ route('todos.store') }}" method="POST" enctype="multipart/form-data">
