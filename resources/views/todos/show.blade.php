@@ -4,7 +4,7 @@
     <div class="card">
         <div class="card-header d-flex justify-content-between align-items-center">
             <h5>Todo</h5>
-            <a href="{{route('todo.index')}}" class="btn btn-dark">back</a>
+            <a href="{{route('todos.index')}}" class="btn btn-dark">Back</a>
         </div>
         <div class="card-body">
             <div class="mb-3">

@@ -4,10 +4,10 @@
     <div class="card">
         <div class="card-header d-flex justify-content-between align-items-center">
             <h5 class="">Todos</h5>
-            <a href="{{ route('todos.create') }}" class="btn btn-dark">create</a>
+            <a href="{{ route('todos.create') }}" class="btn btn-dark">Create</a>
         </div>
         <div class="card-body">
-            <table class="table table-striped">
+            <table class="table table-striped align-middle">
                 <thead> 
                     <tr>
                         <th>Image</th>
@@ -25,8 +25,12 @@
                         <td>{{ $todo->title }}</td>
                         <td>{{ $todo->category->title }}</td>
                         <td>
-                            <a href="{{ route('todos.show', $todo->id) }}" class="btn btn-sm btn-secondary">Show</a>
-                            <button disabled class="btn btn-sm btn-outline-danger">Completed</button>
+                            <a href="{{ route('todos.show', $todo->id) }}" class="btn btn-sm btn-primary">Show</a>
+                            @if ($todo->status)
+                            <a href="{{ route('todos.undone', $todo->id) }}" class="btn btn-sm btn-outline-success">Completed</a>
+                            @else
+                            <a href="{{ route('todos.done', $todo->id) }}" class="btn btn-sm btn-danger">Done?</a>
+                            @endif
                         </td>
                     </tr>
                     @endforeach

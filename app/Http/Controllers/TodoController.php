@@ -46,4 +46,20 @@ class TodoController extends Controller
 
         return redirect()->route('todos.index');
     }
+
+    public function done(Todo $todo)
+    {
+       $todo->update([
+        'status'=> 1
+        ]);
+        return redirect()->route('todos.index');
+    }
+
+    public function undone(Todo $todo)
+    {
+       $todo->update([
+        'status'=> 0
+        ]);
+        return redirect()->route('todos.index');
+    }
 }
